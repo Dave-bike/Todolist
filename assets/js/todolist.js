@@ -2,8 +2,9 @@ const listaDeTareas = document.getElementById("listaDeTareas");
 const tareaInput = document.getElementById("nuevaTarea");
 const btnAgregar = document.getElementById("ingresarTarea");
 const totalTareas = document.getElementById("totalTarea");
+const checkTarea = document.getElementById("checkTarea")
 const tareas = [];
-const realizadas = false
+const realizadas = false;
 
 btnAgregar.addEventListener("click", () => {
   const tarea = tareaInput.value;
@@ -17,11 +18,12 @@ btnAgregar.addEventListener("click", () => {
 function renderList(tareas) {
   let html = "";
   for (let tarea of tareas) {
-    html += `<li>${tarea.tarea} <button onclick=>OK</button> <button
+    html += `<li>${tarea.tarea} <button onclick="check">OK</button> <button
 onclick="borrar(${tarea.id})"> eliminar </button></li>`;
   }
   listaDeTareas.innerHTML = html;
   totalTareas.textContent = `${tareas.length}`;
+  checkTarea.textContent = `${check.length}`
 }
 
 function borrar(id) {
@@ -30,50 +32,10 @@ function borrar(id) {
   renderList(tareas);
 }
 
-/*<body>
-<input id="nuevaTarea">
-<button id="agregarTarea">Agregar</button><br>
-<input id = "buscarTarea">
-<button id="btnBuscarTarea">Buscar</button>
-<h3>Tareas: </h3>
-<span id="cuenta-tareas"> </span>
-<ul id="tareas"></ul>
+function check() {
+  const checklist = checkTarea.findIndex((ele) => ele.id == id);
+  checkTarea.push("")
+  renderList(checkTarea)
+}
 
 
-const listaDeTareas = document.querySelector("#tareas")
-const tareaInput = document.querySelector("#nuevaTarea")
-const buscadorInput = document.querySelector("#buscarTarea")
-const btnAgregar = document.querySelector("#agregarTarea")
-const btnBuscar = document.querySelector("#btnBuscarTarea")
-const cuentaTareas = document.querySelector("#cuenta-tareas");
-const tareas = []
-
-btnAgregar.addEventListener("click", () => {
-const tarea = tareaInput.value
-tareas.push({id: Date.now(), tarea: tarea})
-tareaInput.value = ""
-renderList(tareas)
-});
-function renderList(tareas){
-let html = ""
-for (let tarea of tareas) {
-html += `<li>${tarea.tarea} <button
-onclick="borrar(${tarea.id})"> eliminar </button></li>`;
-}
-listaDeTareas.innerHTML = html;
-cuentaTareas.textContent = `Total de tareas: ${tareas.length}`;
-}
-_ 34
-www.desafiolatam.com
-function borrar(id){
-const index = tareas.findIndex((ele) => ele.id == id)
-tareas.splice(index, 1)
-renderList(tareas)
-}
-btnBuscar.addEventListener("click", () => {
-const tareaBuscada = buscadorInput.value;
-const tareasFiltradas = tareas.filter(
-(tarea) => tarea.tarea.includes(tareaBuscada)
-);
-renderList(tareasFiltradas);
-})*/
