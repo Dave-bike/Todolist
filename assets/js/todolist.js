@@ -4,26 +4,24 @@ const btnAgregar = document.getElementById("ingresarTarea");
 const totalTareas = document.getElementById("totalTarea");
 const checkTarea = document.getElementById("checkTarea")
 const tareas = [];
-const realizadas = false;
+let realizadas = 0;
 
 btnAgregar.addEventListener("click", () => {
   const tarea = tareaInput.value;
-  tareas.push({ id: Date.now(), tarea: tarea });
-  tareaInput.value = "";
-  renderList(tareas);
-  if ((tareaInput.value = null)) {
-    btnAgregar = false;
+  if ((tarea != '')) {
+    tareas.push({ id: Date.now(), tarea: tarea });
+    tareaInput.value = "";
+    renderList(tareas);
   }
 });
 function renderList(tareas) {
   let html = "";
   for (let tarea of tareas) {
-    html += `<li>${tarea.tarea} <button onclick="check">OK</button> <button
+    html += `<li>${tarea.tarea} <button onclick="check(this)">OK</button> <button
 onclick="borrar(${tarea.id})"> eliminar </button></li>`;
   }
   listaDeTareas.innerHTML = html;
   totalTareas.textContent = `${tareas.length}`;
-  checkTarea.textContent = `${check.length}`
 }
 
 function borrar(id) {
@@ -32,10 +30,11 @@ function borrar(id) {
   renderList(tareas);
 }
 
-function check() {
-  const checklist = checkTarea.findIndex((ele) => ele.id == id);
-  checkTarea.push("")
-  renderList(checkTarea)
+function check(target) {
+  target.classList.add('checkButton');
+  realizadas++;
+  checkTarea.innerHTML = realizadas;
+
 }
 
 

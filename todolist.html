@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todolist</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Oswald:wght@300&family=Vast+Shadow&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <main>
-        <section id="listContainer">
-            <h1>Todo List</h1>
-            <h4>Ingresar Tarea</h4>
-            <input id="nuevaTarea">
-            <button id="ingresarTarea">Ingresar</button>
-            <div id="listaDeTareas"></div>
-            <p>Total de tareas: <span id="totalTarea"></span></p>
-            <p>Tareas realizadas: <span id="checkTarea"></span></p>
-        </section>
+      <section id="listContainer">
+        <h1>Todo List</h1>
+        <hr />
+        <h4>Ingresar Tarea</h4>
+        <div id="input">
+          <input id="nuevaTarea" type="text" /><button id="ingresarTarea">Ingresar</button>
+        </div>
+        <div id="list">
+          <div id="result">
+            <p>Total de tareas: <span id="totalTarea">0</span></p>
+            <p>Tareas realizadas: <span id="checkTarea">0</span></p>
+          </div>
+          <div id="listaDeTareas"></div>
+        </div>
+      </section>
     </main>
     <script src="/assets/js/todolist.js"></script>
-</body>
+  </body>
 </html>
